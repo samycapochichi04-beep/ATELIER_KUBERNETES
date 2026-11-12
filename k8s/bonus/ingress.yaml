@@ -1,10 +1,9 @@
-# Bonus A — Exposer le site via l'Ingress Controller Traefik (fourni par k3s).
-# Le port 8081 du Codespace est relié au port 80 du load balancer k3d (option -p à la création du cluster).
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: site
 spec:
+  ingressClassName: traefik
   rules:
     - http:
         paths:
@@ -12,6 +11,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: TODO     # quel Service ?
+                name: site
                 port:
-                  number: TODO # quel port du Service ?
+                  number: 80

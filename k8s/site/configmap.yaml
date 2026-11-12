@@ -1,18 +1,14 @@
-# Exercice 4 — La page HTML de votre site, stockée dans le cluster.
-# Une ConfigMap contient de la configuration (ou de petits fichiers) séparée de l'image.
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: site-html
 data:
-  # Chaque clé devient un fichier quand la ConfigMap est montée comme volume.
   index.html: |
-    <!doctype html>
+    <!DOCTYPE html>
     <html lang="fr">
-      <head><meta charset="utf-8"><title>Mon site sur Kubernetes</title></head>
-      <body>
-        <h1>Bienvenue sur mon site</h1>
-        <!-- TODO : personnalisez la page (votre nom, votre groupe...) -->
-        <p>Servi par Kubernetes.</p>
-      </body>
+    <head><meta charset="utf-8"><title>Mon site Kubernetes</title></head>
+    <body style="font-family:sans-serif;text-align:center;margin-top:10vh">
+      <h1>Bienvenue sur mon site Web (déployé avec Kubernetes)</h1>
+      <p>Servi par nginx, contenu stocké dans une ConfigMap.</p>
+    </body>
     </html>
